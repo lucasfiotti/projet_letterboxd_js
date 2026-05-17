@@ -35,3 +35,29 @@ nav ul li a {
     color: white;
     text-decoration: none;
 }
+
+#tendances {
+    background: white;
+    padding: 32px 24px;
+}
+
+#tendances h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+#actuTendances {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+#actuTendances article img {
+    width: 100%;
+}
+
+#actuTendances article p {
+    color: #032541;
+    font-weight: bold;
+    margin-top: 8px;
+}
