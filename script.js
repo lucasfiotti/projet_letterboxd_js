@@ -18,6 +18,10 @@ class Section {
                 const type = item.media_type || (item.title ? 'movie' : 'tv');
                 window.location.href = `detail.html?id=${item.id}&type=${type}`;
             });
+            if (this.grid.id === 'actuTendances') {
+                const premierFilm = data.results.find(item => item.backdrop_path);
+                document.getElementById('recherche').style.backgroundImage = `url('https://image.tmdb.org/t/p/original${premierFilm.backdrop_path}')`;
+            }
             carte.innerHTML = `
         <div class="poster-wrapper">
           <img src="${IMG_URL}${item.poster_path}" alt="${item.title || item.name}"/>
@@ -30,6 +34,10 @@ class Section {
                 year: 'numeric'
             })}</p>
       `;
+            const img = carte.querySelector('img');
+            img.addEventListener('error', () => {
+                img.src = 'img/no-poster.png';
+            });
             this.grid.appendChild(carte);
         });
     }
@@ -48,6 +56,43 @@ function initialiserFiltres(sectionInstance, sectionId) {
         });
     });
 }
+
+async function rechercherFilms(query) {
+    const response = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=fr-FR&query=${query}`);
+    const data = await response.json();
+
+    const grid = document.getElementById('search-grid');
+    grid.innerHTML = '';
+
+    data.results.slice(0, 8).forEach(item => {
+        if (!item.poster_path) return;
+        const carte = document.createElement('article');
+        carte.style.cursor = 'pointer';
+        carte.addEventListener('click', () => {
+            const type = item.media_type || (item.title ? 'movie' : 'tv');
+            window.location.href = `detail.html?id=${item.id}&type=${type}`;
+        });
+        carte.innerHTML = `
+      <div class="poster-wrapper">
+        <img src="${IMG_URL}${item.poster_path}" alt="${item.title || item.name}"/>
+        <span class="score">${Math.round(item.vote_average * 10)}%</span>
+      </div>
+      <p class="titre">${item.title || item.name}</p>
+      <p class="date">${new Date(item.release_date || item.first_air_date).toLocaleDateString('fr-FR', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+        })}</p>
+    `;
+        grid.appendChild(carte);
+    });
+}
+
+document.getElementById('search-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const query = document.getElementById('search-input').value.trim();
+    if (query) rechercherFilms(query);
+});
 
 
 const tendances = new Section('actuTendances', `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&language=fr-FR`);

@@ -35,7 +35,7 @@ async function afficherDetail() {
     <div id="casting-grid">
       ${acteurs.map(acteur => `
         <div class="acteur">
-          <img src="${acteur.profile_path ? IMG_URL + acteur.profile_path : 'img/no-photo.jpg'}" alt="${acteur.name}"/>
+          <img src="${acteur.profile_path ? IMG_URL + acteur.profile_path : 'img/no-photo.png'}" alt="${acteur.name}"/>
           <p class="acteur-nom">${acteur.name}</p>
           <p class="acteur-role">${acteur.character}</p>
         </div>
