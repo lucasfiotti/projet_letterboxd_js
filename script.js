@@ -13,6 +13,11 @@ class Section {
 
         data.results.slice(0, 8).forEach(item => {
             const carte = document.createElement('article');
+            carte.style.cursor = 'pointer';
+            carte.addEventListener('click', () => {
+                const type = item.media_type || (item.title ? 'movie' : 'tv');
+                window.location.href = `detail.html?id=${item.id}&type=${type}`;
+            });
             carte.innerHTML = `
         <div class="poster-wrapper">
           <img src="${IMG_URL}${item.poster_path}" alt="${item.title || item.name}"/>

@@ -153,3 +153,93 @@ nav ul li a {
     background: #032541;
     color: white;
 }
+
+.detail-hero {
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+}
+
+.detail-hero-overlay {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    padding: 40px 24px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.5));
+    min-height: 400px;
+}
+
+.detail-hero-overlay img {
+    width: 200px;
+    flex-shrink: 0;
+    border-radius: 6px;
+}
+
+.detail-infos {
+    color: white;
+}
+
+.detail-infos h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.detail-meta {
+    color: #ccc;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+
+.detail-infos h2 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    margin-top: 16px;
+}
+
+#casting-container {
+    background: white;
+    padding: 32px 24px;
+}
+
+#casting-container h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+#casting-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.acteur img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.acteur-nom {
+    font-weight: bold;
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+.acteur-role {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.detail-score {
+    width: 50px;
+    height: 50px;
+    background: #032541;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
