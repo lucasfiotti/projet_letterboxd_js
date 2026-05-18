@@ -125,3 +125,31 @@ nav ul li a {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.filtre {
+    padding: 6px 16px;
+    border: 2px solid #032541;
+    border-radius: 4px;
+    background: transparent;
+    color: #032541;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.filtre.actif {
+    background: #032541;
+    color: white;
+}
+
+.filtre:hover {
+    background: #032541;
+    color: white;
+}

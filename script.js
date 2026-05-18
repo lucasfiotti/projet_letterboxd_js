@@ -30,10 +30,27 @@ class Section {
     }
 }
 
-const tendances = new Section('actuTendances', `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&language=fr-FR`);
-const series = new Section('series-grid', `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=fr-FR`);
-const films = new Section('films-grid', `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=fr-FR`);
+function initialiserFiltres(sectionInstance, sectionId) {
+    const boutons = document.querySelectorAll(`#${sectionId} .filtre`);
 
+    boutons.forEach(bouton => {
+        bouton.addEventListener('click', () => {
+            boutons.forEach(b => b.classList.remove('actif'));
+            bouton.classList.add('actif');
+            sectionInstance.grid.innerHTML = '';
+            sectionInstance.url = bouton.dataset.url;
+            sectionInstance.afficher();
+        });
+    });
+}
+
+
+const tendances = new Section('actuTendances', `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&language=fr-FR`);
+const series = new Section('series-grid', `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=fr-FR`);
+const films = new Section('films-grid', `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=fr-FR`);
 tendances.afficher();
 series.afficher();
 films.afficher();
+initialiserFiltres(tendances, 'tendances');
+initialiserFiltres(series, 'series');
+initialiserFiltres(films, 'films');

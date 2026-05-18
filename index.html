@@ -25,17 +25,57 @@
 </header>
 <main>
     <section id="tendances">
-        <h2>Tendances</h2>
+        <div class="section-header">
+            <h2>Tendances</h2>
+            <div class="filtres">
+                <button class="filtre actif"
+                        data-url="https://api.themoviedb.org/3/trending/all/day?api_key=33a0dd3dbdda91ac44cfa3af14f24f03&language=fr-FR">
+                    Aujourd'hui
+                </button>
+                <button class="filtre"
+                        data-url="https://api.themoviedb.org/3/trending/all/week?api_key=33a0dd3dbdda91ac44cfa3af14f24f03&language=fr-FR">
+                    Cette semaine
+                </button>
+            </div>
+        </div>
         <div id="actuTendances"></div>
     </section>
 
     <section id="series">
-        <h2>Séries TV</h2>
+        <div class="section-header">
+            <h2>Séries TV</h2>
+            <div class="filtres">
+                <button class="filtre actif"
+                        data-url="https://api.themoviedb.org/3/tv/top_rated?api_key=33a0dd3dbdda91ac44cfa3af14f24f03&language=fr-FR">
+                    Mieux notées
+                </button>
+                <button class="filtre"
+                        data-url="https://api.themoviedb.org/3/tv/popular?api_key=33a0dd3dbdda91ac44cfa3af14f24f03&language=fr-FR">
+                    Populaires
+                </button>
+            </div>
+        </div>
         <div id="series-grid"></div>
     </section>
 
     <section id="films">
-        <h2>Films</h2>
+        <div class="section-header">
+            <h2>Films</h2>
+            <div class="filtres">
+                <button class="filtre actif"
+                        data-url="https://api.themoviedb.org/3/movie/now_playing?api_key=33a0dd3dbdda91ac44cfa3af14f24f03&language=fr-FR">
+                    En ce moment
+                </button>
+                <button class="filtre"
+                        data-url="https://api.themoviedb.org/3/movie/popular?api_key=33a0dd3dbdda91ac44cfa3af14f24f03&language=fr-FR">
+                    Populaires
+                </button>
+                <button class="filtre"
+                        data-url="https://api.themoviedb.org/3/movie/top_rated?api_key=33a0dd3dbdda91ac44cfa3af14f24f03&language=fr-FR">
+                    Mieux notés
+                </button>
+            </div>
+        </div>
         <div id="films-grid"></div>
     </section>
 </main>
