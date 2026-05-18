@@ -7,12 +7,19 @@ async function afficherTendances() {
 
     const grid = document.getElementById('actuTendances');
 
-    data.results.forEach(film => {
+    data.results.slice(0, 8).forEach(film => {
         const carte = document.createElement('article');
         carte.innerHTML = `
-      <img src="${IMG_URL}${film.poster_path}" alt="${film.title || film.name}"/>
-      <p>${film.title || film.name}</p>
-    `;
+        <div class="poster-wrapper">
+            <img src="${IMG_URL}${film.poster_path}" alt="${film.title || film.name}"/>
+            <span class="score">${Math.round(film.vote_average * 10)}%</span>
+        </div>
+             <p class="titre">${film.title || film.name}</p>
+             <p class="date">${new Date(film.release_date || film.first_air_date).toLocaleDateString('fr-FR', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+        })}</p>    `;
         grid.appendChild(carte);
     });
 }
