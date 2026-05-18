@@ -93,3 +93,19 @@ nav ul li a {
 #actuTendances article {
     overflow: visible;
 }
+
+#series {
+    background: #f4f4f4;
+    padding: 32px 24px;
+}
+
+#series h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+#series-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
