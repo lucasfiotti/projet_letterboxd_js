@@ -109,3 +109,19 @@ nav ul li a {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
+
+#films {
+    background: white;
+    padding: 32px 24px;
+}
+
+#films h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+#films-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}

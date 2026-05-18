@@ -32,6 +32,8 @@ class Section {
 
 const tendances = new Section('actuTendances', `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&language=fr-FR`);
 const series = new Section('series-grid', `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=fr-FR`);
+const films = new Section('films-grid', `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=fr-FR`);
 
 tendances.afficher();
 series.afficher();
+films.afficher();
