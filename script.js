@@ -11,7 +11,7 @@ class Section {
         const response = await fetch(this.url);
         const data = await response.json();
 
-        data.results.slice(0, 8).forEach(item => {
+        data.results.slice(0, 4).forEach(item => {
             const carte = document.createElement('article');
             carte.style.cursor = 'pointer';
             carte.addEventListener('click', () => {
@@ -25,8 +25,8 @@ class Section {
             carte.innerHTML = `
         <div class="poster-wrapper">
           <img src="${IMG_URL}${item.poster_path}" alt="${item.title || item.name}"/>
-          <span class="score">${Math.round(item.vote_average * 10)}%</span>
         </div>
+        <span class="score">${Math.round(item.vote_average * 10)}%</span>
         <p class="titre">${item.title || item.name}</p>
         <p class="date">${new Date(item.release_date || item.first_air_date).toLocaleDateString('fr-FR', {
                 day: 'numeric',
@@ -64,7 +64,7 @@ async function rechercherFilms(query) {
     const grid = document.getElementById('search-grid');
     grid.innerHTML = '';
 
-    data.results.slice(0, 8).forEach(item => {
+    data.results.slice(0, 4).forEach(item => {
         if (!item.poster_path) return;
         const carte = document.createElement('article');
         carte.style.cursor = 'pointer';
